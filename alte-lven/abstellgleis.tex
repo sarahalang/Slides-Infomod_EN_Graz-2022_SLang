@@ -1,0 +1,202 @@
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[allowframebreaks]{DBMS}
+  \metroset{block=fill}
+\begin{alertblock}{Was ist ein Datenbankmanagementsystem (DBMS)?}
+Ein Datenbankmanagementsystem ist eine Software zum Betrieb von
+Datenbanksystemen, also zur Verwaltung von Datenbasen
+\end{alertblock}
+
+\begin{exampleblock}{Basisfunktionalität}
+\begin{enumerate}
+    \item Definition von Datenstrukturen (via Data Definition Language)
+    \item Manipulation von Daten (Einfügen, Ändern, Löschen) (via Data Manipulation Language)
+    \item Abfrage  eines Datenausschnitts (via Query Language)
+    \item Dauerhafte Speicherung der Daten (nicht zwingend bei jeder DB)
+\end{enumerate}
+\end{exampleblock}
+
+Erweiterte Funktionalität
+Datenschutz (Zugriff auf Daten einschränken)
+Chris Date: Security means protecting the data against unauthorized users“
+”
+Sicherstellung der Datenintegrität: Konsistenz durch Regeln
+(korrekte und widerspruchsfreie Daten)
+Chris Date: Integrity means protecting the data against authorized users“
+”
+Datensicherung / Recovery (z.B. bei Systemabsturz)
+Synchronisation (Mehrere User, verteilte DBMS)
+
+Vorteile von Datenbanksystemen
+%. . . oder: Warum sollte man sich seinen Persistenz-Layer nicht selbst programmieren?
+\begin{enumerate}
+    \item Standards bzgl. der Datenorganisation (ANSI-SPARC-Modell)
+    \item Datenunabhängigkeit
+    \item \textbf{Abstraktion:} Ebenen (physisch/logisch/Benutzersichten)
+    \item Transparenz zwischen Ebenen: definierte Schnittstellen
+    \item Flexibilität: Trennung von Speicherung und Verwaltung
+    \item Effizienter Datenzugriff (Speichern, Auslesen, Sortieren, \dots)
+    \item Hohe Verfügbarkeit bei gleichzeitiger Sicherheit: viele (gleichzeitige) Zugriffe
+    \item Redundanzvermeidung
+\end{enumerate}
+\end{frame}
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[allowframebreaks]{Besonderheiten von Relationalen Datenbanken}
+In Relationalen Datenbanken werden Mengen von Entitäten bzw. Beziehungen durch Relationen repräsentiert
+Relation (Mathematik)
+Menge von n-Tupeln
+Tupel
+Zusammenfassung von „Objekten“ in einer Liste
+Reihenfolge ist von Bedeutung
+Jedes Tupel repräsentiert eine Entität bzw. Beziehung, jede Position im Tupel ein Attribut
+Z.B. (Müller , Franz , 12344837)
+
+* Relationen repräsentieren stets Mengen von Entitäten bzw. Beziehungen
+mehrere Entitäten desselben Typs
+mehrere Beziehungen desselben Typs
+* Relationale Datenbanken modellieren die Welt in dieser bestimmten, relationalen Perspektive
+Relationale Datenbanken sind ein Metamodell
+Relationale Datenbanken „zwingen“ uns, unsere Originale relational zu denken
+Relationale Datenbanken realisieren einen eingeschränkten Blick auf die Welt
+Erfüllen Relationale Datenbanken den Zweck von Modellen, das Original „besser als bisher in den Griff [zu bekommen]?“ (Stachowaik: Allgemeine Modelltheorie, 1973, S. 140)
+
+
+Operationen mit Relationen (Tabellen)
+
+Relationen (Tabellen) sind die Bausteine Relationaler Datenbanken
+Attribute repräsentieren für den Modellbildner relevante Eigenschaften der Entitäten und Beziehungen
+Über die Attribute lassen sich Entitäten bzw. Beziehungen vergleichen, sortieren und filtern
+Tabelle/Datenbank: Zweckgebundenes Erfassungsschema
+
+\end{frame}
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]{Blocks}
+  \metroset{block=fill}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.4\textwidth}
+
+    \column{0.6\textwidth}
+\begin{sqlcode}
+SELECT DISTINCT column_list
+FROM table_list
+    JOIN table ON join_condition
+WHERE row_filter
+ORDER BY column
+LIMIT count OFFSET offset
+GROUP BY column
+HAVING group_filter;
+\end{sqlcode}
+
+  \end{columns}
+\end{frame}
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]{Blocks}
+    Datenbankabfrage: Select-Statement
+\begin{sqlcode}
+SELECT DISTINCT column_list
+FROM table_list
+	JOIN table ON join_condition
+WHERE row_filter
+ORDER BY column
+LIMIT count OFFSET offset
+GROUP BY column
+HAVING group_filter;
+\end{sqlcode}
+\end{frame}
+
+
+
+%------------------------------------------------------------------------------
+\begin{sqlcode}
+CREATE TABLE Persons (
+    ID int NOT NULL PRIMARY KEY,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+);
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
+);
+\end{sqlcode}
+
+\begin{sqlcode}
+CREATE TABLE Orders (
+    OrderID int NOT NULL PRIMARY KEY,
+    OrderNumber int NOT NULL,
+    PersonID int FOREIGN KEY REFERENCES Persons(PersonID)
+);
+\end{sqlcode}
+
+%------------------------------------------------------------------------------
+
+
+
+% Messy Data, Open Refine
+Thaller Preußenproblem, überlieferte Texte = Kanon oder zufällig überlebt → repräsentativ für ihre Zeit??
+
+Sprachliche Unschärfe
+Geisteswissenschaften haben viel mit Sprache zu tun
+Sprache ist genuin unscharf, mehrdeutig, redundant
+Die Abbildung von schwammiger Sprache auf konkrete Daten ist daher schwierig
+
+%TODO Joins
+
+
+\begin{sqlcode}
+    INSERT INTO durch_strasse_verbunden (see, hotel, distanz) 
+    VALUES (1,15,156);
+\end{sqlcode}
+
+
+
+\section{How-To Slides}
+
+      \begin{block}{OpenRefine}
+      \begin{quote}
+        OpenRefine is a powerful, free and open source tool that can be used for data cleaning.
+        
+        OpenRefine will automatically track any steps allowing you to backtrack as needed and providing a record of all work done
+    \end{quote}
+      \end{block}
+      
+      
+      
+
+\begin{frame}{Mehr Informationen}
+
+ich hab hier ein hilfreiches Video gefunden, das beispielhaft ein ERM zu einer relationalen Datenbanken überführt:
+\protect\url{https://www.youtube.com/watch?v=CZTkgMoqVss}
+
+
+\href{mehr Information}{https://www.it-swarm.com.de/de/sql/deklarieren-sie-die-variable-sqlite-und-verwenden-sie-sie/939818168/}
+
+\protect\url{it-swarm.com.deit-swarm.com.de}
+sql — Deklarieren Sie die Variable in SQLite und verwenden Sie sie
+Ich möchte eine Variable in SQLite deklarieren und in der Operation insert verwenden.
+%Wie in MS SQL:declare @name as varchar(10) set name = 'name' select * from table where name = @name Zum Beispiel muss ich last_insert_row und benutze es in insert.I...
+
+
+\protect\url{https://www.quora.com/Is-1-true-and-0-false-in-programming}
+-> meist ist 0 true und nicht-0 false, aber zB in C ist eine Operation, die 0 zurückliefert erfolgreich verlaufen (success code) und bei nicht-0 mit Problemen (failure code)
+
+    
+\end{frame}
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[allowframebreaks]{ER erweitert}
+    \includegraphics[width=\textwidth]{img/wdh-er-bestandteile.png}
+    
+    \framebreak
+\footnotesize
+\begin{tikzpicture}[node distance=6em]
+\node[entity](book){book};
+\node[attribute](isbn)[left of=book]{\key{ID}} edge(book);
+\node[attribute](name)[above left of=book]{Name} edge(book);
+\node[multi attribute](phone)[above of=book]{Phone} edge(book);
+\node[attribute](address)[above right of=book]{Address} edge(book);
+\node[attribute](street)[above right of=address]{Street} edge(address);
+\node[attribute](city)[right of=address]{City} edge(address);
+\node[derived attribute](age)[right of=book]{Age} edge(book);
+\node[relationship](published)[below of=book]{published} edge(book);
+\node[entity](tool)[below of=published]{Tool} edge[total](published);
+\node[attribute](tid)[left of=tool]{\key{ID}} edge(tool);
+\node[attribute](tname)[right of=tool]{Name} edge(tool);
+\end{tikzpicture}
+
+\footnotesize
+\begin{tikzpicture}[node distance=6.5em]
+%--------------------
+% the book
+%--------------------
+\node[entity](book){Book};
+\node[attribute](isbn)[left of=book]{\key{ISBN}} edge(book);
+\node[attribute](title)[above left of=book]{title} edge(book);
+\node[attribute](pagenr)[above of=book]{nr. of pages} edge(book);
+
+%--------------------
+% published by publisher
+%--------------------
+\node[relationship](published)[below of=book, yshift =-2em]{published} edge node[above right]{N}(book);
+\node[entity](publisher)[below of=published, yshift =-2em]{publisher} edge node[above right]{1}(published);
+\node[attribute](tid)[left of=publisher]{\key{ID}} edge(publisher);
+\node[attribute](tname)[right of=publisher]{Name} edge(publisher);
+\node[attribute](address)[above right of=publisher]{address} edge(publisher);
+\node[attribute](street)[above right of=address]{Street} edge(address);
+\node[attribute](city)[right of=address]{City} edge(address);
+\node[multi attribute](phonenr)[below right of=publisher]{phone number} edge(publisher);
+
+%--------------------
+% written by author
+%--------------------
+\node[relationship](written)[right of=  book, xshift =3em]{written} edge node[above right]{N}(book);
+\node[entity](author)[right of= written, xshift =3em]{author} edge node[above right]{M}(written);
+\node[attribute](birthday)[above  of=author]{birthday} edge(author);
+\node[attribute](name)[above right of=author]{name} edge(author);
+\node[derived attribute](age)[right of=author]{Age} edge(author);
+\end{tikzpicture}
+
+
+\end{frame}
+

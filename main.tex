@@ -1,0 +1,73 @@
+\documentclass[10pt]{beamer}
+\input{einstellungen.tex}
+\usepackage{multicol}
+\usepackage{hyperref}
+%\input{change-background-to-unigraz}
+ 
+\begin{document}
+
+%------------------------------------------------------------------------------
+% FRONT
+%------------------------------------------------------------------------------
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{img/kfu-zim-slides.png}}
+\frame{\titlepage}
+}
+%\frame{\titlepage}
+
+%------------------------------------------------------------------------------
+\begin{frame}{}%\scriptsize
+  \setbeamertemplate{section in toc}[sections numbered]
+  \begin{small}
+  \begin{multicols}{2}\tableofcontents\end{multicols}
+  % on toc formatting:
+  % https://tex.stackexchange.com/questions/26929/two-column-beamer-toc-with-control-over-the-breaking-point
+  \end{small}
+\end{frame}
+
+\metroset{block=fill}
+\input{einheiten/formalia}
+
+% EXAMPLES - don't include
+%\input{einheiten/metropolis-examples}
+
+
+
+%------------------------------------------------------------------------------
+% MAIN
+%------------------------------------------------------------------------------
+\input{einheiten/intro}\input{einheiten/stachowiak_globus}
+\input{einheiten/datenmodellierung}
+
+\input{einheiten/tikz-er}\input{einheiten/er-georg} %DONE
+
+\input{einheiten/er-modelle}
+\input{einheiten/er-models2}
+\input{einheiten/terminal-basics}
+%\input{einheiten/db} %TODO - wasnt done in this class
+
+\input{einheiten/sql} %TODO new slides from georg?
+\input{einheiten/sql-joins}
+\input{einheiten/TODO-sql-slides}
+
+%\input{einheiten/messy-data}\input{einheiten/open-refine}
+%\input{einheiten/xml}\input{einheiten/other-datatypes}\input{einheiten/text-und-abschluss}
+\input{einheiten/metadata-abschluss.tex}
+%TODO die Abschlusseinheit ist inhaltich nicht deckungsgleich mit der in DE
+
+% ACHTUNG, nicht fertig - don't include
+%\input{einheiten/lektuere-zusammenfassungen}
+% TODO add norm data slides (Georg DigEd adaption?)
+
+
+%------------------------------------------------------------------------------
+% BACKMATTER
+%------------------------------------------------------------------------------
+
+\begin{frame}[allowframebreaks]{References}
+    %\AtNextBibliography{\small}
+    \printbibliography[heading=none]
+\end{frame}
+ 
+\end{document}

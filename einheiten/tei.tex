@@ -1,0 +1,190 @@
+
+%----------------------------------
+
+
+\begin{frame}[fragile,allowframebreaks]{XML-Regeln}
+\begin{columns}
+\footnotesize
+\column{0.5\textwidth}
+\bg{w3schools}{white}{Prolog}~ \\
+\mycommand{<xml version="1.0" encoding="utf-8">}{XML-Deklaration}
+\mycommand{<?xsl-stylesheet type="text/xsl" href="mein.xsl"?>}{Verarbeitungsanweisungen (optional)}
+
+evtl. Einbindung des Dokumentmodells (optional) \\
+DTD, XML Schema, RelaxNG, Schematron \\
+
+\column{0.5\textwidth}
+\bg{w3schools}{white}{Entitäten}~ `geschützte Zeichen', da sie eine Bedeutung in der Metasprache und der Objektsprache haben; selbstdefiniert \& vordefinierte, z.B.: \\
+\mycommand{&lt;}{<}
+\mycommand{&gt;}{>}
+\mycommand{&amp;}{\&}
+\end{columns}
+
+
+\end{frame}
+
+
+
+
+
+\section{Text Encoding Initiative}
+%-----------------------------------------------------
+\begin{frame}[fragile,allowframebreaks]{TEI Primer}
+\footnotesize
+\bg{alert}{white}{Text Encoding Initiative}\\
+\bgupper{w3schools}{black}{.xml}\\
+XML-Standard \item De-Facto-Standard in den \emph{Digital Humanities} \item Kodierung von Druckwerken (Editionswissenschaft) \item bishin zu Linguistik
+\begin{quote}
+    Die Text Encoding Initiative (TEI) ist eine 1987 gegründete Organisation (seit 2000 als TEI-Konsortium organisiert) und ein gleichnamiges Dokumentenformat zur Kodierung und zum Austausch von Texten, das diese entwickelt hat und weiterentwickelt.  (\href{https://de.wikipedia.org/wiki/Text_Encoding_Initiative}{Wiki})
+\end{quote}
+
+\begin{myxml}{TEI-Grundstruktur}
+<TEI> <!-- Wurzelelement -->
+    <teiHeader> ... </teiHeader> <!-- Autor, Titel, Datierung, Quelle(n), Editionsrichtlinien,
+Versionierung, etc. -->
+    <text> ... </text>
+</TEI>
+\end{myxml}
+\smallskip
+
+\bg{w3schools}{white}{Ressourcen}\\
+\href{http://www.tei-c.org/Support/Learn/}{Learn TEI} \item \href{http://www.tei-c.org/support/learn/teach-yourself-tei/}{Teach Yourself} \item P5 = 5. Proposal \item MEI für Musik \item CEI für Charters (Urkunden) \item \href{http://www.tei-c.org/}{http://www.tei-c.org/} \item Standard zur Textkodierung \item Publikationswerkzeuge: Versioning Machine, TEI Boilerplate, TEICHI, TEI
+Stylesheets 
+\end{frame}
+
+%-------------------------------------
+\begin{frame}[fragile,allowframebreaks]{TEI Header}
+\footnotesize
+\bg{alert}{white}{fileDesc}~ = Instrumentarium zur umfassenden bibliographischen  Beschreibung der Inhalte eines TEI-Dokumentes  \\
+\bg{alert}{white}{encodingDesc}~ = beschreibt den Zusammenhang des elektronischen Textes mit
+dem Quelltext, z.B. diverse Regel bei der Transkription, sowie Erläuterungen zum
+Annotationsprozess \\
+
+\begin{myxml}{TEI-Header}
+<TEI> <!-- Wurzelelement -->
+    <teiHeader>
+        <fileDesc> ... </fileDesc> <!-- obligatorisch --> 
+        <encodingDesc> <!-- optional -->
+        <profileDesc> <!-- optional -->
+        <revisionDesc> <!-- optional -->
+    </teiHeader> 
+    <text> ... </text>
+</TEI>
+\end{myxml} 
+\bg{alert}{white}{profileDesc}~ = Beschreibung aller nicht bibliographischen Aspekte des
+Textes, z.B. Informationen über die Entstehung des Textes, sowie über verwendete Sprachen
+u.Ä. \\
+\bg{alert}{white}{revisionDesc}~ = Beschreibung aller Änderungen und Überarbeitungsschritte am
+Transskript des Quelltextes.
+\end{frame}
+%----------------------------------
+\begin{frame}[allowframebreaks]{TEI Basics}
+\footnotesize
+TEI = \bg{alert}{white}{modular} $\to$ im Schema können Untermengen festgelegt werden (`Ich benutze Core und \dots ') \item \href{http://www.tei-c.org/Roma/}{ROMA Schema} \item sonst TEI P5 All
+\smallskip
+
+\bg{w3schools}{white}{Gemeinsamkeiten von Textdokumenten: } \\
+\bg{alert}{white}{\href{http://www.tei-c.org/release/doc/tei-p5-doc/en/html/CO.html}{TEI Core} }
+
+\begin{itemize}\footnotesize
+    \item Identifikatoren (Seitenangaben, Signatur, Inventarnummer, Regalnummer, etc.)
+    \item Abschnitte und Unterabschnitte (Gliederung)
+    \item Abbildungen, Skizzen, grafische Elemente
+    \item Schreibmodus (Prosa, Drama, Vers etc.)
+    \item Strukturelle Einheiten (Absatz, Listen, Strophen, Zeilen, Reden, etc.)
+    \item Textunterschiede oftmals durch unterschiedliche Formatierung gekennzeichnet (Titel, Überschriften, Zitate, Betonungen, etc.)
+    \item Sachinformationen (Personen, Orte, etc.)
+    \item Texteingriffe Korrekturen, Streichungen, Revisionen
+\end{itemize}
+\vspace{1em}
+
+\bg{w3schools}{white}{Warum TEI verwenden oder nicht?} \\
+\textbf{Nachteil:} man muss Regeln befolgen -- muss man aber sonst sinnvollerweise eh auch. Wollte man es wirklich gut machen, wäre es viel Arbeit! Andererseits: Flexibilität. TEI hat nicht immer etwas für Spezialzwecke. \\
+\textbf{Vorteil:} die Regeln hat sich schon jemand überlegt, man muss sie nur nachschauen, verstehen und anwenden. Allgemeiner Standard in den Geisteswissenschaften, macht Daten unterschiedlicher Projekte interoperabel.
+\end{frame}
+
+
+%-----------------------------------
+\begin{frame}[fragile,allowframebreaks]{TEI verwenden}
+\footnotesize
+\href{http://www.tei-c.org/release/doc/tei-p5-doc/en/html/SG.html}{Gentle Intro to XML}
+
+\bg{alert}{white}{TEI Core}~ \textbf{div} (Abschnitt) \item \textbf{p} (Paragraph) \item \textbf{head} (Überschrift) \item \textbf{lb} (linebreak) \item \textbf{pb} (page break / beginning) \item \textbf{hi} (highlight) \item \textbf{l} (line) \item \textbf{lg} (line group) \item \textbf{list} \item \textbf{item} \item \textbf{listBibl} \item \textbf{bibl} (bibliograph. Angabe)
+
+\bg{alert}{white}{Attribute}~ \textbf{@n} (label) \item \textbf{@type} (Typisierung) \item \textbf{xml:id} (eindeutige Kennung) \item \textbf{xml:lang} (Sprache) \item \textbf{@rend} (Darstellung) \item \text{@ana} (Interpretation)
+
+\begin{myxml}{Typische Anwendungen}
+<foreign xml:lang="en">word</foreign>
+<term type="homonym"/>
+<date when="2009-04-27"/>
+<time when="12:00:00"/>
+<name type="person"/>
+<persName n="Caesar" xml:id="#44BC">Caesaris</persName> <!-- oder -->
+<persName key="ID.01.208"/>
+<person/>
+<emph/> <hi rend="italic">kursiver Text</hi>
+<seg/> <abbr type="acronym"/>
+<placeName xml:id="#Whitby">Abbey</placeName>
+\end{myxml}
+
+\bg{alert}{white}{Namensräume}~ Identifikation über URI \item \bg{w3schools}{white}{<präfix:name>}~ \item z.B. <tei:p> (`Ich meine das <p> nach dem TEI-Standard'). \\
+\bg{alert}{white}{Deklaration}~ <element xmlns=“URI“> \dots \\
+<präfix:element xmlns:präfix=“URI“> \dots \\
+Z.B. <tei:p xmlns:tei=“http://www.tei-c.org/ns/1.0“>...
+
+
+\end{frame}
+
+
+
+\begin{frame}[fragile,allowframebreaks]{Spezialfälle: Rede \& Briefe}
+\footnotesize
+Kodierung von Sprechakten  (\href{http://www.tei-c.org/release/doc/tei-p5-doc/en/html/examples-sp.html}{TEI-Referenz}), falls Speaker davor steht, sonst \href{http://www.tei-c.org/release/doc/tei-p5-doc/en/html/examples-said.html}{TEIs `said'}:
+\begin{verbatim}
+<sp who="#person">
+    <speaker>1.</speaker> <p>Bla, bla, bla.</p>
+</sp>
+
+<said who="#Adolphe">- Alors, Albert, quoi de neuf?</said>
+\end{verbatim}
+
+\begin{myxml}{Briefe in TEI \href{http://www.tei-c.org/release/doc/tei-p5-doc/en/html/DS.html#DSOC}{(Referenz)}}
+<div type="letter" n="14">
+    <head>Letter XIV: Miss Clarissa Harlowe to Miss Howe</head>
+        <opener>
+            <dateline>Thursday evening, March 2.</dateline>
+            <salute>Hallo,</salute>
+        </opener>
+    <p>On Hannah's depositing my long letter ...</p>
+    <closer>
+        <salute>Yours more than my own,</salute>
+        <signed>Clarissa Harlowe</signed>
+    </closer>
+</div>
+\end{myxml}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]{Annotation fortgeschritten}
+\footnotesize
+\bg{w3schools}{white}{\emph{Named Entities} \& Indirekte Referenz}\\
+\href{http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ND.html}{TEI 13: Names, Dates, People, Places} \item 
+\textbf{persName} für Namensnennung, \textbf{<rs>} für \emph{referring string} bei indirekter Nennung (`er', `der Herr', etc.). Hier dann mit \textbf{@key} oder \textbf{@ref} spezifizieren, wer gemeint ist. (\href{http://www.tei-c.org/release/doc/tei-p5-doc/en/html/CO.html#CONARS}{Referenz}). \textbf{forename} \item \textbf{surname} \seo \textbf{roleName} (z.B. `König') \item  \textbf{genName} (`der Ältere') \item \textbf{addName} \item \textbf{nameLink} (`von').
+
+\begin{verbatim}
+<name role="writer" type="person"
+ref="http://d-nb.info/gnd/118540238">
+Goethe</name>
+<person>
+  <addName type="Former">Murray</addName>
+  <forename>Wilhelmina</forename>
+  <addName type="nickname">Mina</addName>
+</person
+\end{verbatim}
+
+Eine \textbf{person} (selbst) ist nicht identisch mit dem \textbf{persName} (Name)! Dafür zur Verfügung stehende Elemente: \textbf{persName} zu \textbf{person}, \textbf{orgName} für \textbf{org} (Organisation), \textbf{placeName} für \textbf{place.} \textbf{geogName} (= geographical) = Lanschaftsmarker, Berge, etc.
+Problem: \textbf{Unterscheidliche Namensformen}, daher:
+\bg{w3schools}{white}{Normalisierung:} Zeigen, dass \emph{dieselbe} Person gemeint ist. Wir können also eine sog. `normalisierte' Form angeben, z.B. in Form einer Referenz auf die Personenliste im TEI-Header, auf deren \textbf{@xml:id} wir per \textbf{@ref} verweisen. Oder Normdaten der GND oder in Attribut (z.B. \textbf{@n} (\emph{label}) oder \textbf{@ana} (Interpretation)). 
+
+\bg{w3schools}{white}{Redundanz ist eine Fehlerquelle} $\to$ Referenz auf eindeutigen Ort, wo die Info genau 1x vorhanden ist $\to$ Bei Fehlern nur 1x ausgebessern, nicht 200 Okkurenzen. Zur eindeutigen Referenzierung xml:ids, z.B. \verb|<person xml:id="Mina">Mina</person>|, darauf refernzieren dann mithilfe des \texttt{@ref}-Attributs und einem Hashtag: \verb|<persName ref="#Mina">Mina</persName>|.
+
+\end{frame}

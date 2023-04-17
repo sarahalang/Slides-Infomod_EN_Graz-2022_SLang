@@ -1,0 +1,36 @@
+Wie komme ich zum Sqlite3?
+\begin{itemize}
+    \item Installtion: \protect\url{https://www.tutorialspoint.com/sqlite/sqlite_installation.htm}
+    \item Falls Windows: \protect\url{https://www.sqlite.org/download.html} > Precompiled Binaries for WIndows > \verb|sqlite-tools-win32-x86-3360000.zip|
+    \item File entzippen und im Fall von Windows das \texttt{sqlite3.exe} in den Ordner geben, wo auch studis.db und urlaub.db sind (am besten kein so langer/komplizierter Dateipfad)
+\end{itemize}
+
+
+Navigieren im Terminal:
+\begin{itemize}
+    \item in der Suche "terminal"/"cmd" suchen und aufrufen
+    \item dort steht dann, wo man gerade ist z.B: \texttt{c:} bei Windows oder \texttt{home>}
+    \item Ordnerinhalt anzeigen lassen: \texttt{dir} (Windows), \texttt{ls} (Linux)
+    \item Ordner wechseln \texttt{cd Ordnername} oder gleich absoluter Pfad \verb|cd mein/pfad| (Windows) / \verb|cd mein\pfad| (Unix)
+einen Ordner zurück "cd .."
+Sqlite3 öffnen (man muss im Ordner sein, wo es liegt): >sqlite3
+\end{itemize}
+
+Im Sqlite3 (man merkt, dass man drin ist, wenn vorn \texttt{sqlite3>} steht:
+\begin{itemize}
+    \item \texttt{.open studis.db}
+    \item \texttt{.tables}
+    \item \texttt{SELECT * FROM studis;} (Semicolon am Ende nicht vergessen!)
+    \item evtl davor: \texttt{.mode colums} (evtl .headers on)
+    \item Nach \texttt{.open studis.db} kommt im Idealfall nichts $\to$ dann mit \texttt{.tables} checken, was drin ist
+\end{itemize}
+
+Falls nix kommt, unter Mac eingeben \texttt{which sqlite3} (eventuell öffnet er nicht das, was man wollte, sondern einen anderen Pfad. Sann muss man erst dort hinnavigieren, wo es liegt.
+
+Bei Klicken auf \texttt{sqlite3.exe} sollte es unter Windows auch gehen, es muss allerdings die \texttt{studis.db} Datei wirklich im selben Ordner sein.
+
+Scheint \texttt{studis.db} leer? Wurde es zuvor mit dem DB-Browser geöffnet? Der löscht den Inhalt manchmal $\to$ neu downloaden vom Moodle und möglichst direkt im Terminal öffnen, nicht mit DB-Browser!
+
+
+
+

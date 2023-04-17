@@ -1,0 +1,108 @@
+
+
+
+\section{Messy Data}
+%TODO Open Refine (Slides in Moodle und Ordner)
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[standout]
+    \alert{Lektüre}-Zusammenfassung: \\
+    Christof Schöch, \emph{Big? Smart? Clean? Messy? Data in the Humanities} \\[1em]
+    {\footnotesize Bitte \alert{\href{https://docs.google.com/presentation/d/1JweC-x1MxLjoKcDcHDtsw6NoYZfSbQ0USVYzYxqVx_c/edit?usp=sharing}{hier im Google Slides zusammenfassen}}; 1 Person stellt dann vor. \\
+    }
+\end{frame}
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[allowframebreaks]{Das Thallersche Preußenproblem}
+\metroset{block=fill}
+
+\alert{Historische Daten: Das Thallersche Preußenbeispiel} \\
+{\scriptsize
+Das Preußenbeispiel findet sich in: Manfred Thaller, \emph{Gibt es eine fachspezifische
+Datenverarbeitung in den historischen Wissenschaften?}, in: K.H. Kaufhold und J.
+Schneider, \emph{Geschichtswissenschaft und elektronische Datenverarbeitung},
+Wiesbaden 1988, S. 45--83, hier S. 57--66.
+
+}
+
+\begin{columns}
+  \column{0.45\textwidth}
+  \begin{exampleblock}{Die Aufgabe}\footnotesize
+  Suche Personen, die aus Preußen stammen (d.h. in Preußen geboren wurden), jünger als 50 Jahre sind \& ein Vermögen von mehr als 100 Einheiten der Währung XY besitzen
+  \end{exampleblock}
+  \column{0.55\textwidth}
+  \begin{alertblock}{Problem 1: Preußen}\scriptsize
+  \begin{itemize}
+      \item Kommt Preußen überhaupt in den Daten vor -- oder gibt es nur einen Geburtsort? Idealerweise sollte das System den Geburtsort in Preußen lokalisieren (z.B. via GIS).
+      \item Preußen ist ein historisches Gebilde, das mehrfach seine Grenzen verändert hat. Man braucht ein möglichst genaues Datum um die Grenzen festzulegen.
+      \item Aber: Datum ist relativ zum Alter (und dieses wiederum relativ zum Entstehungsdatum der Quelle).
+  \end{itemize}
+  \end{alertblock}
+\end{columns}
+
+{\scriptsize\flushright Quelle: LV Datenbanken, Gunter Vasold, SS17
+
+}
+
+\framebreak 
+
+\begin{columns}
+  \column{0.45\textwidth}
+  \begin{exampleblock}{Die Aufgabe}\footnotesize
+  Suche Personen, die aus Preußen stammen (d.h. in Preußen geboren wurden), jünger als 50 Jahre sind \& ein Vermögen von mehr als 100 Einheiten der Währung XY besitzen
+  \end{exampleblock}
+  \column{0.55\textwidth}
+  \begin{alertblock}{Problem 2: Das Alter}\scriptsize
+  \begin{itemize}
+      \item Altersangaben in historischen Quellen sind in der Regel Schätzungen.
+      \item Das Alter muss relativ zur Entstehungszeit der Quelle ermittelt werden.
+      \item Dazu muss das Kalendersystem und Kalenderstil bekannt sein (zeitl. und räumlich unterschiedlich).
+      \item Die Datenbank sollte mit unscharfen Angaben umgehen können: ``ca. 50 oder jünger''. 
+      \item Idealerweise sollte das System den Grad der Unschärfe selbständig ermitteln (z.B. statistisch) und anwenden können.
+      \item Daraus sollte bei Bedarf auch eine Gewichtung zu errechnen sein.
+  \end{itemize}
+  \end{alertblock}
+\end{columns}
+  
+{\scriptsize\flushright Quelle: LV Datenbanken, Gunter Vasold, SS17
+
+}
+
+\framebreak 
+
+\begin{columns}
+  \column{0.45\textwidth}
+  \begin{exampleblock}{Die Aufgabe}\footnotesize
+  Suche Personen, die aus Preußen stammen (d.h. in Preußen geboren wurden), jünger als 50 Jahre sind \& ein Vermögen von mehr als 100 Einheiten der Währung XY besitzen
+  \end{exampleblock}
+  \column{0.55\textwidth}
+  \begin{alertblock}{Problem 3: Das Vermögen}\scriptsize
+  \begin{itemize}
+      \item Historische Währungen umrechnen auf neutrale und vergleichbare Skala.
+      \item \emph{Voraussetzung:} Zeitpunkt (Datum) ermitteln (siehe oben).
+      \item \emph{Voraussetzung:} Für dieses Datum und den Ort feststellen, in welchem politischen Gebilde (Territorium) sich der Ort befindet.
+      \item Umrechnungsfaktoren für Währung für die Zeit und das Territorium errechnen.
+      \item Damit Vergleichssumme errechnen und vergleichen.
+  \end{itemize}
+  \end{alertblock}
+\end{columns}
+
+{\scriptsize\flushright Quelle: LV Datenbanken, Gunter Vasold, SS17
+
+}
+
+\end{frame}
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[standout]
+    \alert{Lektüre}-Zusammenfassung: \\
+    Michael Piotrowski, \emph{Serial Sources} \\[1em]
+    {\footnotesize Bitte \alert{\href{https://docs.google.com/presentation/d/1JweC-x1MxLjoKcDcHDtsw6NoYZfSbQ0USVYzYxqVx_c/edit?usp=sharing}{hier im Google Slides zusammenfassen}}; 1 Person stellt dann vor. \\
+    }
+\end{frame}
+
+
